@@ -28,6 +28,7 @@ Route::prefix('master/')->group(function () {
     Route::post('data-user-add-process', [App\Http\Controllers\UserController::class, 'store'])->name('add-master-user-process');
     Route::get('data-user-edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('edit-master-user');
     Route::post('data-user-edit-process/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('edit-master-user-process');
+    Route::post('data-user-delete-process', [App\Http\Controllers\UserController::class, 'destroy'])->name('delete-master-user-process');
 
     Route::get('data-kategori', [App\Http\Controllers\KategoriController::class, 'index'])->name('data-kategori');
     Route::get('data-kategori-get', [App\Http\Controllers\KategoriController::class, 'ajax'])->name('data-kategori-get');
