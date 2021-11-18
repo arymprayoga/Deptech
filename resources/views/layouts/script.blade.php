@@ -65,10 +65,99 @@ integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yA
             "ajax": "{{ url('master/data-user-get') }}",
         });
     });
+
+    $(document).ready(function() {
+        dt = $('#kategori-table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "columns": [{
+                    "data": "id",
+                    "name": "id",
+                    "title": "#"
+                },
+                {
+                    "data": "nama_kategori",
+                    "name": "nama_kategori",
+                    "title": "NAMA KATEGORI"
+                },
+                {
+                    "data": "deskripsi",
+                    "name": "deskripsi",
+                    "title": "DESKRIPSI"
+                },
+                {
+                    "data": "action",
+                    "name": "action",
+                    "orderable": false,
+                    "searchable": false
+                },
+            ],
+            "ajax": "{{ url('master/data-kategori-get') }}",
+        });
+    });
+
+    $(document).ready(function() {
+        dt = $('#produk-table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "columns": [{
+                    "data": "id",
+                    "name": "id",
+                    "title": "#"
+                },
+                {
+                    "data": "nama_produk",
+                    "name": "nama_produk",
+                    "title": "NAMA PRODUK"
+                },
+                {
+                    "data": "kategori",
+                    "name": "kategori",
+                    "title": "KATEGORI PRODUK"
+                },
+                {
+                    "data": "deskripsi_produk",
+                    "name": "deskripsi_produk",
+                    "title": "DESKRIPSI PRODUK"
+                },
+                {
+                    "data": "gambar_produk_file",
+                    "name": "gambar_produk_file",
+                    "title": "GAMBAR PRODUK"
+                },
+                {
+                    "data": "stock",
+                    "name": "stock",
+                    "title": "STOCK"
+                },
+                {
+                    "data": "action",
+                    "name": "action",
+                    "orderable": false,
+                    "searchable": false
+                },
+            ],
+            "ajax": "{{ url('master/data-produk-get') }}",
+        });
+    });
 </script>
 
 <script>
     $('#modalhapususer').on('show.bs.modal', function(event) {
+        var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+        var modal = $(this)
+        // Isi nilai pada field
+        modal.find('#id').attr("value", div.data('id'));
+    });
+
+    $('#modalhapuskategori').on('show.bs.modal', function(event) {
+        var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+        var modal = $(this)
+        // Isi nilai pada field
+        modal.find('#id').attr("value", div.data('id'));
+    });
+
+    $('#modalhapusproduk').on('show.bs.modal', function(event) {
         var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
         var modal = $(this)
         // Isi nilai pada field

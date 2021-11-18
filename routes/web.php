@@ -36,4 +36,13 @@ Route::prefix('master/')->group(function () {
     Route::post('data-kategori-add-process', [App\Http\Controllers\KategoriController::class, 'store'])->name('add-master-kategori-process');
     Route::get('data-kategori-edit/{id}', [App\Http\Controllers\KategoriController::class, 'edit'])->name('edit-master-kategori');
     Route::post('data-kategori-edit-process/{id}', [App\Http\Controllers\KategoriController::class, 'update'])->name('edit-master-kategori-process');
+    Route::post('data-kategori-delete-process', [App\Http\Controllers\KategoriController::class, 'destroy'])->name('delete-master-kategori-process');
+
+    Route::get('data-produk', [App\Http\Controllers\ProdukController::class, 'index'])->name('data-produk');
+    Route::get('data-produk-get', [App\Http\Controllers\ProdukController::class, 'ajax'])->name('data-produk-get');
+    Route::get('data-produk-add', [App\Http\Controllers\ProdukController::class, 'create'])->name('add-master-produk');
+    Route::post('data-produk-add-process', [App\Http\Controllers\ProdukController::class, 'store'])->name('add-master-produk-process');
+    Route::get('data-produk-edit/{id}', [App\Http\Controllers\ProdukController::class, 'edit'])->name('edit-master-produk');
+    Route::post('data-produk-edit-process/{id}', [App\Http\Controllers\ProdukController::class, 'update'])->name('edit-master-produk-process');
+    Route::post('data-produk-delete-process', [App\Http\Controllers\ProdukController::class, 'destroy'])->name('delete-master-produk-process');
 });

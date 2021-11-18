@@ -42,6 +42,13 @@
                             <p>Kategori</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('data-produk') }}"
+                            class="nav-link {{ request()->is('master/data-produk') ? 'active' : '' }}">
+                            <i class="fas fa-database nav-icon"></i>
+                            <p>Produk</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">
