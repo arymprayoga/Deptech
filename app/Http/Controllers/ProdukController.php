@@ -150,7 +150,7 @@ class ProdukController extends Controller
     {
         $produk = Produk::findOrFail($request->id);
         Storage::delete($produk->gambar_produk);
-        // $produk->delete();
+        $produk->delete();
         return back();
     }
 }
