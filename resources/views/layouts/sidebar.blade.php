@@ -49,6 +49,13 @@
                             <p>Produk</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('data-transaksi') }}"
+                            class="nav-link {{ request()->is('master/data-transaksi') ? 'active' : '' }}">
+                            <i class="fas fa-database nav-icon"></i>
+                            <p>Transaksi</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">

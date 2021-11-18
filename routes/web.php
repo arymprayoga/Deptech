@@ -45,4 +45,12 @@ Route::prefix('master/')->group(function () {
     Route::get('data-produk-edit/{id}', [App\Http\Controllers\ProdukController::class, 'edit'])->name('edit-master-produk');
     Route::post('data-produk-edit-process/{id}', [App\Http\Controllers\ProdukController::class, 'update'])->name('edit-master-produk-process');
     Route::post('data-produk-delete-process', [App\Http\Controllers\ProdukController::class, 'destroy'])->name('delete-master-produk-process');
+
+    Route::get('data-transaksi', [App\Http\Controllers\TransaksiController::class, 'index'])->name('data-transaksi');
+    Route::get('data-transaksi-get', [App\Http\Controllers\TransaksiController::class, 'ajax'])->name('data-transaksi-get');
+    Route::get('data-transaksi-add', [App\Http\Controllers\TransaksiController::class, 'create'])->name('add-master-transaksi');
+    Route::post('data-transaksi-add-process', [App\Http\Controllers\TransaksiController::class, 'store'])->name('add-master-transaksi-process');
+    Route::get('data-transaksi-edit/{id}', [App\Http\Controllers\TransaksiController::class, 'edit'])->name('edit-master-transaksi');
+    Route::post('data-transaksi-edit-process/{id}', [App\Http\Controllers\TransaksiController::class, 'update'])->name('edit-master-transaksi-process');
+    Route::post('data-transaksi-delete-process', [App\Http\Controllers\TransaksiController::class, 'destroy'])->name('delete-master-transaksi-process');
 });

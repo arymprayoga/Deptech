@@ -140,6 +140,35 @@ integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yA
             "ajax": "{{ url('master/data-produk-get') }}",
         });
     });
+
+    $(document).ready(function() {
+        dt = $('#transaksi-table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "columns": [{
+                    "data": "id",
+                    "name": "id",
+                    "title": "#"
+                },
+                {
+                    "data": "jenis_transaksi",
+                    "name": "jenis_transaksi",
+                    "title": "JENIS TRANSAKSI"
+                },
+                {
+                    "data": "produk",
+                    "name": "produk",
+                    "title": "NAMA PRODUK"
+                },
+                {
+                    "data": "jumlah",
+                    "name": "jumlah",
+                    "title": "JUMLAH TRANSAKSI"
+                }
+            ],
+            "ajax": "{{ url('master/data-transaksi-get') }}",
+        });
+    });
 </script>
 
 <script>
@@ -158,6 +187,13 @@ integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yA
     });
 
     $('#modalhapusproduk').on('show.bs.modal', function(event) {
+        var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+        var modal = $(this)
+        // Isi nilai pada field
+        modal.find('#id').attr("value", div.data('id'));
+    });
+
+    $('#modalhapustransaksi').on('show.bs.modal', function(event) {
         var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
         var modal = $(this)
         // Isi nilai pada field
